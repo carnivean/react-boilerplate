@@ -34,6 +34,22 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: 'category',
+      name: 'category',
+      getComponent(location, cb) {
+        System.import('components/Category')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: 'article/:id',
+      name: 'article',
+      getComponent(location, cb) {
+        System.import('components/Article')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
